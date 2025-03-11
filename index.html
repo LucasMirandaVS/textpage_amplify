@@ -119,7 +119,7 @@
             };
 
             // Substitua com o seu endpoint da API real
-            fetch("YOUR_API_GATEWAY_ENDPOINT", requestOptions)
+            fetch("arn:aws:dynamodb:ap-southeast-1:651706772649:table/tabelaGoth", requestOptions)
             .then(response => response.text())
             .then(result => {
                 // Exibe uma mensagem de sucesso ou erro
@@ -144,7 +144,7 @@
         <input type="text" id="nomeGotico" placeholder="Ex: Lúcifer Nocturno" required>
 
         <br>
-        <button type="submit">Aceitar o Nome</button>
+        <button type="submit">Aceitar a Escuridão</button>
     </form>
 
     <footer>
