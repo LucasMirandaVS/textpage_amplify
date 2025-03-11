@@ -7,7 +7,7 @@
         @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
         body {
-            background: url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1572246115112-244459eec937?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjA0OXwwfDF8c2VhcmNofDJ8fGNlbWV0ZXJ5fGVufDB8fHx8fDE2NzI2NzMyNzI&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Helvetica', sans-serif;
             color: #e6e6e6;
@@ -119,7 +119,7 @@
             };
 
             // Substitua com o seu endpoint da API real
-            fetch("https://iwscm5pkpb.execute-api.ap-southeast-1.amazonaws.com/prod/", requestOptions)
+            fetch("YOUR_API_GATEWAY_ENDPOINT", requestOptions)
             .then(response => response.text())
             .then(result => {
                 // Exibe uma mensagem de sucesso ou erro
@@ -151,4 +151,3 @@
         <p>🌑 Projeto sombrio no <a href="https://github.com/LucasMirandaVS/textpage_amplify" target="_blank">GitHub</a></p>
     </footer>
 </body>
-</html>
