@@ -7,7 +7,7 @@
         @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
         body {
-            background: url('https://images.unsplash.com/photo-1572246115112-244459eec937?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjA0OXwwfDF8c2VhcmNofDJ8fGNlbWV0ZXJ5fGVufDB8fHx8fDE2NzI2NzMyNzI&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
+            background: url('https://github.com/LucasMirandaVS/textpage_amplify/blob/main/background.jpg?raw=true') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Helvetica', sans-serif;
             color: #e6e6e6;
@@ -18,7 +18,7 @@
 
         h1 {
             font-family: 'UnifrakturCook', Helvetica, sans-serif;
-            color: #cc0000;
+            color: #ffffff;
             font-size: 48px;
             margin-bottom: 30px;
             text-shadow: 3px 3px 5px #000;
@@ -89,11 +89,11 @@
     <script>
         function enviarFormulario() {
             const nome = document.getElementById("nome").value;
-            const nomeGotico = document.getElementById("nome_gotico").value;
+            const nomeGotico = document.getElementById("nomeGotico").value;
 
             if (nome && nomeGotico) {
                 alert(`🕯️ Salve, ${nome}.\nSeu nome gótico será eternamente: "${nomeGotico}"`);
-                
+
                 // Realizar sorteio após o preenchimento do formulário
                 realizarSorteio(nome, nomeGotico); // Envia nome e nomeGotico para a API
             } else {
@@ -119,7 +119,7 @@
             };
 
             // Substitua com o seu endpoint da API real
-            fetch("arn:aws:dynamodb:ap-southeast-1:651706772649:table/tabelaGoth", requestOptions)
+            fetch("https://iwscm5pkpb.execute-api.ap-southeast-1.amazonaws.com/prod/", requestOptions)  // Substitua com o URL real da API
             .then(response => response.text())
             .then(result => {
                 // Exibe uma mensagem de sucesso ou erro
@@ -144,10 +144,11 @@
         <input type="text" id="nomeGotico" placeholder="Ex: Lúcifer Nocturno" required>
 
         <br>
-        <button type="submit">Aceitar a Escuridão</button>
+        <button type="submit">Abraçar a Escuridão</button>
     </form>
 
     <footer>
         <p>🌑 Projeto sombrio no <a href="https://github.com/LucasMirandaVS/textpage_amplify" target="_blank">GitHub</a></p>
     </footer>
 </body>
+</html>
