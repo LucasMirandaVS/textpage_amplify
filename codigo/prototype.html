@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Batismo Gótico</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+        body {
+            background: url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Helvetica', sans-serif;
+            color: #e6e6e6;
+            text-align: center;
+            padding: 60px 20px;
+            backdrop-filter: brightness(40%);
+        }
+
+        h1 {
+            font-family: 'UnifrakturCook', Helvetica, sans-serif;
+            color: #cc0000;
+            font-size: 48px;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 5px #000;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
+        }
+
+        label {
+            font-size: 20px;
+            display: block;
+            margin: 20px 0 10px;
+            color: #cccccc;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 18px;
+            width: 250px;
+            border: none;
+            border-radius: 4px;
+            background-color: #111;
+            color: #eee;
+            box-shadow: inset 1px 1px 4px #000;
+        }
+
+        button {
+            margin-top: 25px;
+            background-color: #990000;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        button:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 60px;
+            font-size: 15px;
+            color: #aaa;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function enviarFormulario() {
+            const nome = document.getElementById("nome").value;
+            const nomeGotico = document.getElementById("nomeGotico").value;
+
+            if (nome && nomeGotico) {
+                alert(`🕯️ Salve, ${nome}.\nSeu nome gótico será eternamente: "${nomeGotico}"`);
+                
+                // Realizar sorteio após o preenchimento do formulário
+                realizarSorteio(nome, nomeGotico); // Envia nome e nomeGotico para a API
+            } else {
+                alert("Por favor, preencha ambos os campos para receber seu nome gótico.");
+            }
+        }
+
+        // Função para chamar a API e enviar o nome e nomeGotico
+        var realizarSorteio = (nome, nomeGotico) => {
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+                "nome": nome,
+                "nomeSorteio": nomeGotico
+            });
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            // Substitua com o seu endpoint da API real
+            fetch("YOUR_API_GATEWAY_ENDPOINT", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                // Exibe uma mensagem de sucesso ou erro
+                alert("Nome e nome gótico enviados para a API com sucesso!");
+            })
+            .catch(error => {
+                // Exibe mensagem de erro caso algo dê errado
+                console.log('error', error);
+                alert("Erro ao enviar os dados. Tente novamente.");
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>🦇 Batismo Gótico 🦇</h1>
+
+    <form onsubmit="event.preventDefault(); enviarFormulario();">
+        <label for="nome">Seu nome mortal:</label>
+        <input type="text" id="nome" placeholder="Ex: Lucas" required>
+
+        <label for="nomeGotico">Seu nome gótico:</label>
+        <input type="text" id="nomeGotico" placeholder="Ex: Lúcifer Nocturno" required>
+
+        <br>
+        <button type="submit">Aceitar o Nome</button>
+    </form>
+
+    <footer>
+        <p>🌑 Projeto sombrio no <a href="https://github.com/LucasMirandaVS/textpage_amplify" target="_blank">GitHub</a></p>
+    </footer>
+</body>
+</html>
