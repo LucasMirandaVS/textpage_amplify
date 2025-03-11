@@ -89,7 +89,7 @@
     <script>
         function enviarFormulario() {
             const nome = document.getElementById("nome").value;
-            const nomeGotico = document.getElementById("nomeGotico").value;
+            const nomeGotico = document.getElementById("nome_gotico").value;
 
             if (nome && nomeGotico) {
                 alert(`🕯️ Salve, ${nome}.\nSeu nome gótico será eternamente: "${nomeGotico}"`);
@@ -108,7 +108,7 @@
 
             var raw = JSON.stringify({
                 "nome": nome,
-                "nomeSorteio": nomeGotico
+                "nome_gotico": nomeGotico
             });
 
             var requestOptions = {
