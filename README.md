@@ -1,4 +1,4 @@
-## Página de Cadastro online e Serverless
+## Página de Cadastro Online e Serverless
 
 Este projeto utiliza serviços da AWS para criar uma aplicação escalável e sem servidores:
 
