@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Batismo Gótico</title>
+    <title>Lead Capture</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
-
         body {
             background: url('https://github.com/LucasMirandaVS/textpage_amplify/blob/main/background.jpg?raw=true') no-repeat center center fixed;
             background-size: cover;
@@ -17,11 +15,11 @@
         }
 
         h1 {
-            font-family: 'UnifrakturCook', Helvetica, sans-serif;
+            font-family: Helvetica, sans-serif;
             color: #ffffff;
-            font-size: 48px;
+            font-size: 36px;
             margin-bottom: 30px;
-            text-shadow: 3px 3px 5px #000;
+            text-shadow: 2px 2px 4px #000;
         }
 
         form {
@@ -33,7 +31,7 @@
         }
 
         label {
-            font-size: 20px;
+            font-size: 18px;
             display: block;
             margin: 20px 0 10px;
             color: #cccccc;
@@ -42,7 +40,7 @@
 
         input {
             padding: 10px;
-            font-size: 18px;
+            font-size: 16px;
             width: 250px;
             border: none;
             border-radius: 4px;
@@ -53,9 +51,9 @@
 
         button {
             margin-top: 25px;
-            background-color: #990000;
+            background-color: #006699;
             color: #fff;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             padding: 12px 25px;
             border: none;
@@ -66,49 +64,37 @@
         }
 
         button:hover {
-            background-color: #cc0000;
+            background-color: #0099cc;
             transform: scale(1.05);
         }
 
         footer {
             margin-top: 60px;
-            font-size: 15px;
+            font-size: 14px;
             color: #aaa;
             text-shadow: 1px 1px 2px #000;
-        }
-
-        a {
-            color: #66ccff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
     </style>
     <script>
         function enviarFormulario() {
             const nome = document.getElementById("nome").value;
-            const nomeGotico = document.getElementById("nomeGotico").value;
+            const telefone = document.getElementById("nomeGotico").value;
 
-            if (nome && nomeGotico) {
-                alert(`🕯️ Salve, ${nome}.\nSeu nome gótico será eternamente: "${nomeGotico}"`);
-
-                // Realizar sorteio após o preenchimento do formulário
-                realizarSorteio(nome, nomeGotico); // Envia nome e nomeGotico para a API
+            if (nome && telefone) {
+                alert(`Lead submitted successfully!\nName: ${nome}\nPhone: ${telefone}`);
+                enviarParaAPI(nome, telefone);
             } else {
-                alert("Por favor, preencha ambos os campos para receber seu nome gótico.");
+                alert("Please fill out all fields.");
             }
         }
 
-        // Função para chamar a API e enviar o nome e nomeGotico
-        var realizarSorteio = (nome, nomeGotico) => {
+        function enviarParaAPI(nome, telefone) {
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
             var raw = JSON.stringify({
                 "nome": nome,
-                "nome_gotico": nomeGotico
+                "nome_gotico": telefone
             });
 
             var requestOptions = {
@@ -118,37 +104,34 @@
                 redirect: 'follow'
             };
 
-            // Substitua com o seu endpoint da API real
-            fetch("https://iwscm5pkpb.execute-api.ap-southeast-1.amazonaws.com/prod/", requestOptions)  // Substitua com o URL real da API
+            fetch("https://iwscm5pkpb.execute-api.ap-southeast-1.amazonaws.com/prod/", requestOptions)
             .then(response => response.text())
             .then(result => {
-                // Exibe uma mensagem de sucesso ou erro
-                alert("Nome e nome gótico enviados para a API com sucesso!");
+                alert("Data sent successfully!");
             })
             .catch(error => {
-                // Exibe mensagem de erro caso algo dê errado
                 console.log('error', error);
-                alert("Erro ao enviar os dados. Tente novamente.");
+                alert("An error occurred. Please try again.");
             });
         }
     </script>
 </head>
 <body>
-    <h1>🦇 Batismo Gótico 🦇</h1>
+    <h1>Lead Capture Form</h1>
 
     <form onsubmit="event.preventDefault(); enviarFormulario();">
-        <label for="nome">Seu nome mortal:</label>
-        <input type="text" id="nome" placeholder="Ex: Lucas" required>
+        <label for="nome">Name:</label>
+        <input type="text" id="nome" placeholder="e.g., Ana Silva" required>
 
-        <label for="nomeGotico">Seu nome gótico:</label>
-        <input type="text" id="nomeGotico" placeholder="Ex: Lúcifer Nocturno" required>
+        <label for="nomeGotico">Phone Number:</label>
+        <input type="tel" id="nomeGotico" placeholder="e.g., (555) 123-4567" required>
 
         <br>
-        <button type="submit">Abraçar a Escuridão</button>
+        <button type="submit">Submit</button>
     </form>
 
     <footer>
-        <p>🌑 Projeto sombrio no <a href="https://github.com/LucasMirandaVS/textpage_amplify" target="_blank">GitHub</a></p>
+        <p>&copy; 2025</p>
     </footer>
 </body>
 </html>
