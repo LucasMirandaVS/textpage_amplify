@@ -2,6 +2,8 @@
 
 This project is an **adaptation of a real-world solution** delivered to a client who needed a lightweight and scalable way to collect leads in the field. It has been restructured to protect the client's privacy while demonstrating the usefulness of a practical, serverless, and cost-free solution. It has been restructured to highlight its value in **data engineering** and **real business applications**.
 
+Link to the app [here](https://main.dafmmtpmb6gia.amplifyapp.com/).
+
 ---
 
 ## Business Context
