@@ -23,9 +23,27 @@ The client required:
 
 This project uses AWS services to build a scalable, serverless application:
 
+
+```mermaid
+graph TD
+
+  %% Fluxo principal
+
+  Amplify[Landing Page - AWS Amplify]
+  Lambda[AWS Lambda]
+  APIGW[API Gateway]
+  Dynamo[DynamoDB]
+
+
+  Amplify --> Lambda
+  Lambda --> APIGW
+  APIGW --> Dynamo
+  ```
+
 - **AWS Amplify**: For frontend deployment  
 - **AWS Lambda**: For processing lead submissions  
 - **API Gateway**: To connect the frontend to the backend  
 - **AWS DynamoDB**: NoSQL database to store the submitted data  
+
 
 The application allows users to register their names and phone numbers through a mobile-friendly form. These entries are processed by a Lambda function and securely stored in DynamoDB via a serverless pipeline.
